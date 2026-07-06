@@ -1,0 +1,620 @@
+:root {
+  --ink: #152025;
+  --muted: #66757f;
+  --line: #d8e1e6;
+  --paper: #f5f8f6;
+  --panel: #ffffff;
+  --teal: #087f7b;
+  --teal-dark: #075f63;
+  --coral: #d9674e;
+  --gold: #b88a19;
+  --blue: #2e5eaa;
+  --shadow: 0 18px 50px rgba(30, 46, 54, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(120deg, rgba(8, 127, 123, 0.12), transparent 38%),
+    linear-gradient(240deg, rgba(217, 103, 78, 0.13), transparent 34%),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", "Hiragino Sans", "Yu Gothic UI", Meiryo, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(1880px, calc(100% - 16px));
+  margin: 0 auto;
+  padding: 12px 0 18px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: end;
+  padding: 10px 0 12px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--teal-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.55rem, 2.6vw, 3rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(96px, 1fr));
+  gap: 8px;
+  min-width: 220px;
+}
+
+.hero-metrics div {
+  border: 1px solid rgba(8, 127, 123, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 10px 12px;
+  box-shadow: 0 10px 24px rgba(35, 54, 58, 0.08);
+}
+
+.hero-metrics span {
+  display: block;
+  color: var(--teal-dark);
+  font-size: 1.25rem;
+  font-weight: 850;
+}
+
+.hero-metrics small {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.dataset-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 10px;
+}
+
+.dataset-tabs button {
+  min-height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 850;
+  padding: 7px 14px;
+  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.dataset-tabs button:hover {
+  border-color: var(--teal);
+  transform: translateY(-1px);
+}
+
+.dataset-tabs button.active {
+  border-color: var(--teal-dark);
+  background: var(--teal-dark);
+  color: #fff;
+}
+
+.control-band,
+.table-section {
+  border: 1px solid rgba(216, 225, 230, 0.95);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow);
+}
+
+.control-band {
+  display: grid;
+  grid-template-columns: minmax(220px, 420px) auto 1fr auto;
+  gap: 10px;
+  align-items: end;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.search-box {
+  display: grid;
+  gap: 4px;
+}
+
+.search-box span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.standard-filter {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 850;
+  padding: 7px 11px;
+}
+
+.standard-filter input,
+.standard-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--teal-dark);
+}
+
+.standard-filter input {
+  cursor: pointer;
+}
+
+.standard-filter span {
+  white-space: nowrap;
+}
+
+input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  outline: none;
+  padding: 7px 9px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+input:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 4px rgba(8, 127, 123, 0.13);
+}
+
+.quick-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.quick-filters button,
+.ghost-button {
+  min-height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 800;
+  padding: 7px 11px;
+  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.quick-filters button:hover,
+.ghost-button:hover {
+  border-color: var(--teal);
+  transform: translateY(-1px);
+}
+
+.quick-filters button.active {
+  border-color: var(--teal-dark);
+  background: var(--teal-dark);
+  color: #fff;
+}
+
+.table-section {
+  overflow: hidden;
+}
+
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding: 8px 10px;
+}
+
+.table-toolbar strong {
+  color: var(--teal-dark);
+  font-size: 1rem;
+}
+
+.table-toolbar span,
+.table-toolbar p {
+  color: var(--muted);
+}
+
+.table-toolbar p {
+  margin: 0;
+  text-align: right;
+  font-size: 0.82rem;
+}
+
+.table-wrap {
+  overflow: visible;
+}
+
+table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: clamp(0.68rem, 0.58vw, 0.82rem);
+}
+
+th,
+td {
+  border-bottom: 1px solid #e7edf0;
+  border-right: 1px solid #edf2f4;
+  padding: 5px 6px;
+  vertical-align: top;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.25;
+}
+
+th {
+  background: #12343b;
+  color: #fff;
+  text-align: left;
+  white-space: normal;
+  padding: 6px;
+}
+
+thead tr.filter-row th {
+  background: #eff6f4;
+  color: var(--ink);
+  padding: 4px;
+}
+
+thead input {
+  min-width: 0;
+  padding: 5px 6px;
+  font-size: 0.72rem;
+}
+
+.sort-button {
+  display: inline-flex;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-weight: 850;
+  padding: 0;
+  text-align: left;
+}
+
+.sort-indicator {
+  color: #a6d7d1;
+  font-size: 0.72rem;
+}
+
+tbody tr {
+  background: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background: #f9fbfa;
+}
+
+tbody tr:hover {
+  background: #fff8ef;
+}
+
+td.numeric {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.standard-cell {
+  text-align: center;
+}
+
+.standard-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-grid;
+  place-content: center;
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  border: 1px solid rgba(8, 127, 123, 0.55);
+  border-radius: 5px;
+  background: linear-gradient(180deg, #ffffff, #edf7f5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 1px 2px rgba(21, 32, 37, 0.12);
+  color: #fff;
+  cursor: default;
+  opacity: 1;
+}
+
+.standard-checkbox:checked {
+  border-color: #075f63;
+  background: linear-gradient(135deg, #0f9f8f, #075f63);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26), 0 1px 3px rgba(7, 95, 99, 0.28);
+}
+
+.standard-checkbox:checked::before {
+  content: "";
+  width: 8px;
+  height: 4px;
+  border: solid #fff;
+  border-width: 0 0 2px 2px;
+  transform: rotate(-45deg) translate(1px, -1px);
+}
+
+.trial-name {
+  color: var(--teal-dark);
+  font-weight: 850;
+}
+
+.regimen-name {
+  color: var(--ink);
+  font-weight: 850;
+}
+
+.regimen-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  align-items: flex-start;
+}
+
+.regimen-plus {
+  color: var(--muted);
+  font-weight: 850;
+  line-height: 1.4;
+  padding: 1px 0;
+}
+
+.regimen-tag {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.9em;
+  font-weight: 850;
+  line-height: 1.1;
+  padding: 3px 7px;
+  white-space: normal;
+}
+
+.regimen-tag.ici {
+  border-color: rgba(18, 132, 94, 0.34);
+  background: rgba(18, 132, 94, 0.14);
+  color: #0f6f50;
+}
+
+.regimen-tag.her {
+  border-color: rgba(236, 72, 153, 0.2);
+  background: rgba(252, 231, 243, 0.95);
+  color: #9d4b76;
+}
+
+.regimen-tag.cldn {
+  border-color: rgba(216, 119, 30, 0.36);
+  background: rgba(216, 119, 30, 0.15);
+  color: #9a5314;
+}
+
+.regimen-tag.ctla {
+  border-color: rgba(37, 99, 235, 0.34);
+  background: rgba(37, 99, 235, 0.13);
+  color: #1d4ed8;
+}
+
+.regimen-tag.vegf {
+  border-color: rgba(190, 24, 93, 0.32);
+  background: rgba(190, 24, 93, 0.13);
+  color: #be123c;
+}
+
+.regimen-tag.egfr {
+  border-color: rgba(234, 88, 12, 0.34);
+  background: rgba(251, 146, 60, 0.18);
+  color: #c2410c;
+}
+
+.regimen-tag.fgfr {
+  border-color: rgba(202, 138, 4, 0.38);
+  background: rgba(250, 204, 21, 0.2);
+  color: #a16207;
+}
+
+.regimen-tag.ras {
+  border-color: rgba(124, 58, 237, 0.32);
+  background: rgba(196, 181, 253, 0.2);
+  color: #6d28d9;
+}
+
+.regimen-tag.chemo {
+  border-color: rgba(30, 41, 59, 0.2);
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.regimen-tag.other {
+  border-color: rgba(46, 94, 170, 0.22);
+  background: rgba(46, 94, 170, 0.1);
+  color: var(--blue);
+}
+
+.line-pill {
+  display: inline-block;
+  min-width: 42px;
+  border-radius: 999px;
+  background: rgba(46, 94, 170, 0.12);
+  color: var(--blue);
+  font-weight: 850;
+  padding: 2px 6px;
+  text-align: center;
+}
+
+th[data-column="標準治療"],
+td[data-column="標準治療"] {
+  width: 3%;
+  text-align: center;
+}
+
+th[data-column="試験名"],
+td[data-column="試験名"] {
+  width: 8%;
+}
+
+th[data-column="治療ライン"],
+td[data-column="治療ライン"] {
+  width: 5%;
+  text-align: center;
+}
+
+th[data-column="レジメン"],
+td[data-column="レジメン"] {
+  width: 13%;
+}
+
+td[data-column="レジメン"] {
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+th[data-column="試験レジメン"],
+td[data-column="試験レジメン"],
+th[data-column="対照レジメン"],
+td[data-column="対照レジメン"] {
+  width: 9%;
+}
+
+th[data-column="PFS（月）"],
+td[data-column="PFS（月）"],
+th[data-column="OS（月）"],
+td[data-column="OS（月）"] {
+  width: 3.5%;
+  font-size: 1.03em;
+  font-weight: 850;
+}
+
+th[data-column="PFS-HR"],
+td[data-column="PFS-HR"],
+th[data-column="OS-HR"],
+td[data-column="OS-HR"],
+th[data-column="発表年"],
+td[data-column="発表年"],
+th[data-column="ORR（%）"],
+td[data-column="ORR（%）"],
+th[data-column="DCR（%）"],
+td[data-column="DCR（%）"],
+th[data-column="CR率（%）"],
+td[data-column="CR率（%）"],
+th[data-column="対照群PFS（月）"],
+td[data-column="対照群PFS（月）"],
+th[data-column="対照群OS（月）"],
+td[data-column="対照群OS（月）"] 
+{
+  width: 3.5%;
+}
+
+th[data-column="発表論文DOI"],
+td[data-column="発表論文DOI"] {
+  width: 7%;
+}
+
+
+.unknown {
+  color: #8a6a00;
+  font-weight: 800;
+}
+
+.url-list {
+  display: grid;
+  min-width: 220px;
+  gap: 6px;
+}
+
+.url-list a,
+.doi-link {
+  color: var(--teal-dark);
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.url-list a:hover,
+.doi-link:hover {
+  color: var(--coral);
+  text-decoration: underline;
+}
+
+.empty-state {
+  padding: 36px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    width: min(100% - 20px, 1520px);
+    padding: 18px 0;
+  }
+
+  .hero,
+  .control-band {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-metrics {
+    min-width: 0;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .table-toolbar {
+    display: block;
+  }
+
+  .table-toolbar p {
+    margin-top: 6px;
+    text-align: left;
+  }
+
+  .table-wrap {
+    max-height: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  th,
+  td {
+    padding: 10px;
+  }
+}
