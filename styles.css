@@ -253,12 +253,15 @@ input:focus {
 }
 
 .table-wrap {
-  overflow: visible;
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
 }
 
 table {
   width: 100%;
-  min-width: 0;
+  min-width: 1280px;
   table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0;
@@ -605,6 +608,17 @@ td[data-column="発表論文DOI"] {
 
   .table-wrap {
     max-height: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  table {
+    min-width: 1180px;
+    font-size: 0.76rem;
+  }
+
+  th,
+  td {
+    overflow-wrap: anywhere;
   }
 }
 
@@ -615,6 +629,11 @@ td[data-column="発表論文DOI"] {
 
   th,
   td {
-    padding: 10px;
+    padding: 7px 6px;
+  }
+
+  table {
+    min-width: 1080px;
+    font-size: 0.72rem;
   }
 }
